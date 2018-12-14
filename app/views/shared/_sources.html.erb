@@ -3,6 +3,15 @@
   <ul>
   <% collection.each do |source| %>
     <li><%= source.short_title %> = <%= raw formatted_source(source) %></li>
+    <% if source.source_urls.present? %>
+
+    <ul>
+    <% source.source_urls.each do |su_name| %>
+      <li><%= link_to su_name.url, su_name.url %> </li>
+    <% end %>
+  </ul>
+
+<% end %>
   <% end %>
   </ul>
 <% end %>
